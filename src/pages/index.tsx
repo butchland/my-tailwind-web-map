@@ -1,5 +1,5 @@
 import DeckGL from '@deck.gl/react/typed';
-import Map from 'react-map-gl'
+import Map, {NavigationControl} from 'react-map-gl'
 import '../styles/mapbox-gl.css'
 import { useState } from 'react';
 
@@ -37,7 +37,15 @@ function Index() {
       <Map
         mapboxAccessToken={MAPBOX_TOKEN}
         mapStyle={mapboxStyle} 
-      />
+        attributionControl={false}
+      >
+        <NavigationControl 
+         position='bottom-right'
+         showZoom
+         showCompass
+         visualizePitch
+        />
+      </Map>
     </DeckGL>
   );
 }

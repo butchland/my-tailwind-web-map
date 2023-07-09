@@ -1,45 +1,15 @@
-import DeckGL from '@deck.gl/react/typed';
-import Map from 'react-map-gl'
-import '../styles/mapbox-gl.css'
-import { useState } from 'react';
-
-const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_API_KEY;
-const mapboxStyle = "mapbox://styles/mapbox/dark-v10";
-const INITIAL_VIEW_STATE = {
-  longitude: 121.141825,
-  latitude: 14.126985,
-  zoom: 14,
-  minZoom: 5,
-  maxZoom: 16,
-  pitch: 45,
-  bearing: 0
-
-}
+import WebMap
+ from "../components/WebMap";
 function Index() {
-  const handleWebGlInitialize = (gl: WebGLRenderingContext) => {
-    gl.enable(gl.DEPTH_TEST);
-    gl.depthFunc(gl.LEQUAL);
-  };
-  const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
-  const handleChangeViewState = (args: { viewState: any }) => {
-    const {viewState} = args;
-    //console.log(`zoom: ${JSON.stringify(viewState.zoom)}`)
-    setViewState(viewState);
-  }
-
   return (
-    <DeckGL
-      initialViewState={viewState}
-      onViewStateChange={handleChangeViewState}
-      controller
-      onWebGLInitialized={handleWebGlInitialize}
-    >
-      <Map
-        mapboxAccessToken={MAPBOX_TOKEN}
-        mapStyle={mapboxStyle} 
-      />
-    </DeckGL>
-  );
+    <div className="relative h-screen">
+      <div className="absolute h-10 w-full z-10 bg-white">
+        <header className="block">Header</header>
+      </div>
+      <div className="relative h-full">
+        <WebMap/>
+      </div>
+    </div> );
 }
 
 export default Index;

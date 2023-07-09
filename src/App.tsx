@@ -1,10 +1,14 @@
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Index from './pages/index.tsx'
 import './App.css'
 
 function App() {
   return (
-    <>
-    <div className='text-3xl font-bold underline'>Hello</div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Index />}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

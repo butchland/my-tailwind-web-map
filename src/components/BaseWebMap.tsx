@@ -6,12 +6,12 @@ import { type PropsWithChildren, useState } from 'react';
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_API_KEY;
 
 
-export interface WebMapProps extends PropsWithChildren {
+export interface BaseWebMapProps extends PropsWithChildren {
   initialViewState:any;
   mapboxStyle?: string;
   layers?: any;
 }
-function WebMap(props:WebMapProps) {
+function BaseWebMap(props:BaseWebMapProps) {
   const {initialViewState, mapboxStyle, layers, children} = props;
   const handleWebGlInitialize = (gl: WebGLRenderingContext) => {
     gl.enable(gl.DEPTH_TEST);
@@ -42,4 +42,4 @@ function WebMap(props:WebMapProps) {
   );
 }
 
-export default WebMap;
+export default BaseWebMap;

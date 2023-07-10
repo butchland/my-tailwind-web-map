@@ -1,4 +1,4 @@
-import WebMap from "../components/WebMap";
+import BaseWebMap from "../components/BaseWebMap";
 
 
 const INITIAL_VIEW_STATE = {
@@ -21,7 +21,7 @@ function Index() {
       <div className="relative top-0 flex h-full">
         <div className="w-32 mt-10 bg-slate-200">Side</div>
         <div className="relative w-full h-full">
-          <WebMap initialViewState={INITIAL_VIEW_STATE} 
+          <BaseWebMap initialViewState={INITIAL_VIEW_STATE} 
                   mapboxStyle={mapboxStyle}/>
         </div>
       </div>

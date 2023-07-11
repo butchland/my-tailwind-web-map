@@ -13,10 +13,22 @@ const mapboxStyle = "mapbox://styles/mapbox/dark-v10";
 
 
 function Index() {
+  const headerContent = (
+   <header className="text-black">
+    Header Section
+   </header> 
+  )
+  const sidebarContent = "Side"
   return (
     <SectionedWebMap 
       initialViewState={INITIAL_VIEW_STATE}
       mapboxStyle={mapboxStyle}
+      headerContent={headerContent}
+      sidebarContent={sidebarContent}
+      height="h-10"
+      width="w-32"
+      headerClassName="bg-white"
+      className="bg-slate-200"
     />
   );
 }

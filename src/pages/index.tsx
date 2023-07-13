@@ -25,9 +25,9 @@ function Index() {
       mapboxStyle={mapboxStyle}
       headerContent={headerContent}
       sidebarContent={sidebarContent}
-      height="h-10"
+      height="h-28"
       width="w-32"
-      headerClassName="bg-white"
+      headerClassName="bg-transparent"
       className="bg-slate-200"
     />
   );

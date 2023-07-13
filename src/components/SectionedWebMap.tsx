@@ -8,6 +8,18 @@ interface SectionedWebMapProps extends BaseWebMapProps {
   headerClassName?: string;
   className?: string;
 }
+interface SidebarProps {
+  className?: string;
+  content?: any;
+}
+
+  const SideBar = (props:SidebarProps) => {
+    const {className, content} = props;
+    return (<div className={className}>
+          {content}
+        </div>)
+  }
+
 function SectionedWebMap(props:SectionedWebMapProps) {
   const {
     initialViewState, 
@@ -24,15 +36,22 @@ function SectionedWebMap(props:SectionedWebMapProps) {
   const headerHeight = height?? "h-10";
   const marginTop = headerHeight.replace('h-', 'mt-');
   const sidebarWidth = width?? "w-32";
+  const sidebarClassName = `${sidebarWidth} ${marginTop} ${className}`
+  // const sidebarClassName = "w-32 mt-32 bg-slate-200"
+  console.log(`sidebarClassName: ${sidebarClassName}`);
   return (
     <div className="relative h-screen">
       <div className={`absolute ${headerHeight} w-full z-10 ${headerClassName}`}>
         {headerContent}
       </div>
       <div className="relative top-0 flex h-full">
-        <div className={`${sidebarWidth} ${marginTop} ${className}`}>
+        <SideBar
+          className={sidebarClassName}
+          content={sidebarContent} 
+        />
+        {/* <div className={sidebarClassName}>
           {sidebarContent}
-        </div>
+        </div> */}
         <div className="relative w-full h-full">
           <BaseWebMap 
             initialViewState={initialViewState}

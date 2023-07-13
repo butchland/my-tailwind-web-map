@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import BaseWebMap, { type BaseWebMapProps } from "./BaseWebMap";
 
 interface SectionedWebMapProps extends BaseWebMapProps {
@@ -36,17 +37,19 @@ function SectionedWebMap(props:SectionedWebMapProps) {
   const headerHeight = height?? "h-10";
   const marginTop = headerHeight.replace('h-', 'mt-');
   const sidebarWidth = width?? "w-32";
-  const sidebarClassName = `${sidebarWidth} ${marginTop} ${className}`
+  // const sidebarClassName = `${sidebarWidth} ${marginTop} ${className}`
   // const sidebarClassName = "w-32 mt-32 bg-slate-200"
-  console.log(`sidebarClassName: ${sidebarClassName}`);
+  // console.log(`sidebarClassName: ${sidebarClassName}`);
   return (
     <div className="relative h-screen">
-      <div className={`absolute ${headerHeight} w-full z-10 ${headerClassName}`}>
+      {/* `absolute ${headerHeight} w-full z-10 ${headerClassName}` */}
+      <div className="absolute h-[var(--hdr-height)] w-full z-10 bg-slate-400">
         {headerContent}
       </div>
       <div className="relative top-0 flex h-full">
+        {/*  className={clsx(sidebarWidth, marginTop, className) */}
         <SideBar
-          className={sidebarClassName}
+          className="w-32 mt-[var(--hdr-height)] bg-slate-200"
           content={sidebarContent} 
         />
         {/* <div className={sidebarClassName}>

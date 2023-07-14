@@ -20,7 +20,6 @@ function BaseWebMap(props:BaseWebMapProps) {
   const [viewState, setViewState] = useState(initialViewState);
   const handleChangeViewState = (args: { viewState: any }) => {
     const {viewState} = args;
-    //console.log(`zoom: ${JSON.stringify(viewState.zoom)}`)
     setViewState(viewState);
   }
 

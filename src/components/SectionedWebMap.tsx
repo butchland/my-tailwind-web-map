@@ -1,19 +1,38 @@
 import BaseWebMap, { BaseWebMapProps } from "./BaseWebMap";
 
 
-function SectionedWebMap(props:BaseWebMapProps) {
+interface SectionedWebMapProps extends BaseWebMapProps {
+  className?: string,
+  headerContent?: any,
+  sidebarContent?: any,
+  footerContent?: any,
+  rightSidebarContent?:any,
+}
+
+function SectionedWebMap(props:SectionedWebMapProps) {
+  const {
+    className, 
+    headerContent, 
+    sidebarContent, 
+    footerContent, 
+    rightSidebarContent 
+  } = props
   return (
-    <div className="relative h-screen">
-      <div className="absolute h-10 w-full z-10 bg-white">
-        <header className="block">Header</header>
+    <div className={className}>
+      <div className="map-header-container">
+        {headerContent}
       </div>
-      <div className="relative top-0 flex h-full">
-        <div className="w-32 mt-10 bg-slate-200">Side</div>
-        <div className="relative w-full h-full">
+      <div className="flex">
+        {sidebarContent}
+        <div className="map-body relative w-full">
           <BaseWebMap 
             {...props}
           />
         </div>
+        {rightSidebarContent}
+      </div>
+      <div className="map-footer-container">
+        {footerContent}
       </div>
     </div>
   );

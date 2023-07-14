@@ -1,0 +1,17 @@
+:root {
+    --map-header-height: 70px;
+    --map-footer-height: 40px;
+}
+
+.map-header-container {
+    height: var(--map-header-height);
+}
+
+.map-body {
+    height: calc(100vh - var(--map-header-height) - var(--map-footer-height));
+    @apply rounded-2xl overflow-clip;
+}
+
+.map-footer-container {
+    height: var(--map-footer-height);
+}

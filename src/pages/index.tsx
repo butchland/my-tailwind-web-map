@@ -25,10 +25,10 @@ function Index() {
       mapboxStyle={mapboxStyle}
       headerContent={headerContent}
       sidebarContent={sidebarContent}
-      height="h-28"
-      width="w-32"
+      height="110px"
+      width="180px"
       headerClassName="bg-transparent"
-      className="bg-slate-200"
+      className="bg-slate-400"
     />
   );
 }

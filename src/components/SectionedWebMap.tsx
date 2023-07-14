@@ -34,22 +34,23 @@ function SectionedWebMap(props:SectionedWebMapProps) {
     headerClassName,
     className,
   } = props;
-  const headerHeight = height?? "h-10";
-  const marginTop = headerHeight.replace('h-', 'mt-');
-  const sidebarWidth = width?? "w-32";
+  const headerHeight = "h-[" + height + "]";
+  const marginTop = "mt-[" + height + "]";
+  const sidebarWidth = "w-["  + width + "]";
+
   // const sidebarClassName = `${sidebarWidth} ${marginTop} ${className}`
   // const sidebarClassName = "w-32 mt-32 bg-slate-200"
   // console.log(`sidebarClassName: ${sidebarClassName}`);
   return (
     <div className="relative h-screen">
       {/* `absolute ${headerHeight} w-full z-10 ${headerClassName}` */}
-      <div className="absolute h-[var(--hdr-height)] w-full z-10 bg-slate-400">
+      <div className={clsx(headerHeight,"w-full","z-10",headerClassName)}>
         {headerContent}
       </div>
       <div className="relative top-0 flex h-full">
         {/*  className={clsx(sidebarWidth, marginTop, className) */}
         <SideBar
-          className="w-32 mt-[var(--hdr-height)] bg-slate-200"
+          className={clsx(sidebarWidth, marginTop, className)}
           content={sidebarContent} 
         />
         {/* <div className={sidebarClassName}>

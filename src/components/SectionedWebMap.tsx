@@ -7,6 +7,7 @@ interface SectionedWebMapProps extends BaseWebMapProps {
   sidebarContent?: any,
   footerContent?: any,
   rightSidebarContent?:any,
+  inMapContent: any,
 }
 
 function SectionedWebMap(props:SectionedWebMapProps) {
@@ -15,7 +16,8 @@ function SectionedWebMap(props:SectionedWebMapProps) {
     headerContent, 
     sidebarContent, 
     footerContent, 
-    rightSidebarContent 
+    rightSidebarContent,
+    inMapContent 
   } = props
   return (
     <div className={className}>
@@ -28,6 +30,9 @@ function SectionedWebMap(props:SectionedWebMapProps) {
           <BaseWebMap 
             {...props}
           />
+          <div className="relative w-full h-full left-0 top-0">
+            {inMapContent}
+          </div>
         </div>
         {rightSidebarContent}
       </div>

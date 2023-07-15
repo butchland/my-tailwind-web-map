@@ -66,12 +66,15 @@ function Index() {
         className="mapboxgl-ctrl-compass"
         type="button"
         aria-label="Reset bearing to north"
+        onClick={() => {
+          setViewState({ ...viewState, bearing: 0 });
+        }}
       >
         <span
           className="mapboxgl-ctrl-icon"
           aria-hidden="true"
           title="Reset bearing to north"
-          style={{ transform: "rotate(0deg" }}
+          style={{ transform: `rotate(${-viewState.bearing}deg)` }}
         ></span>
       </button>
     </div>

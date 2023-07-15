@@ -1,18 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+
 :root {
     --map-header-height: 70px;
-    /* --map-footer-height: 40px; */
     --map-body-height: 200px;
+    --map-footer-height: calc(100vh - var(--map-body-height) - var(var(--map-header-height)));
+    --sm-map-header-height: 20px;
+    --sm-map-body-height: 100px;
+    --sm-map-footer-height: calc(100vh - var(--sm-map-body-height) - var(var(--sm-map-header-height)));
+
 }
 
 .map-header-container {
-    height: var(--map-header-height);
+    @apply sm:h-[var(--map-header-height)] h-[var(--sm-map-header-height)]
 }
 
 .map-body {
-    height: var(--map-body-height);
-    @apply rounded-2xl overflow-clip;
+    @apply h-[var(--map-body-height)] rounded-2xl overflow-clip;
 }
 
 .map-footer-container {
-    height: calc(100vh - var(--map-body-height) - var(--map-header-height));
+    @apply h-[var(--map-footer-height)];
+}
+
 }

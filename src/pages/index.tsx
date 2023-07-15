@@ -34,7 +34,9 @@ function Index() {
         type="button"
         aria-label="Zoom in"
         aria-disabled="false"
-        onClick={() => { setViewState({ ...viewState, zoom: viewState.zoom + 1 }); }}
+        onClick={() => { if ((viewState.zoom) < INITIAL_VIEW_STATE.maxZoom) {
+          setViewState({ ...viewState, zoom: viewState.zoom + 1 }); }}
+        }
       >
         <span
           className="mapboxgl-ctrl-icon"
@@ -48,7 +50,11 @@ function Index() {
         type="button"
         aria-label="Zoom out"
         aria-disabled="false"
-        onClick={() => { setViewState({ ...viewState, zoom: viewState.zoom - 1 }); }}
+        onClick={() => {  
+          if (viewState.zoom > INITIAL_VIEW_STATE.minZoom) {
+            setViewState({ ...viewState, zoom: viewState.zoom - 1 }); 
+          }
+        }}
       >
         <span
           className="mapboxgl-ctrl-icon"

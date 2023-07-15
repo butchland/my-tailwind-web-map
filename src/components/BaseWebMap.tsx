@@ -10,22 +10,25 @@ export interface BaseWebMapProps extends PropsWithChildren {
   initialViewState:any;
   mapboxStyle?: string;
   layers?: any;
+  onChangeViewState?: any;
 }
 function BaseWebMap(props:BaseWebMapProps) {
-  const {initialViewState, mapboxStyle, layers, children} = props;
+  const {initialViewState, mapboxStyle, layers, children, onChangeViewState} = props;
   const handleWebGlInitialize = (gl: WebGLRenderingContext) => {
     gl.enable(gl.DEPTH_TEST);
     gl.depthFunc(gl.LEQUAL);
   };
-  const [viewState, setViewState] = useState(initialViewState);
+
   const handleChangeViewState = (args: { viewState: any }) => {
     const {viewState} = args;
-    setViewState(viewState);
+    if (onChangeViewState) {
+        onChangeViewState(viewState)
+    }
   }
 
   return (
     <DeckGL
-      initialViewState={viewState}
+      initialViewState={initialViewState}
       onViewStateChange={handleChangeViewState}
       controller
       layers={layers}

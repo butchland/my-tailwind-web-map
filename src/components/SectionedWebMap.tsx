@@ -17,7 +17,7 @@ function SectionedWebMap(props:SectionedWebMapProps) {
     sidebarContent, 
     footerContent, 
     rightSidebarContent,
-    inMapContent 
+    inMapContent, 
   } = props
   return (
     <div className={className}>
@@ -30,9 +30,7 @@ function SectionedWebMap(props:SectionedWebMapProps) {
           <BaseWebMap 
             {...props}
           />
-          <div className="relative w-full h-full left-0 top-0">
-            {inMapContent}
-          </div>
+          {inMapContent}
         </div>
         {rightSidebarContent}
       </div>

@@ -67,33 +67,16 @@ function Index() {
         type="button"
         aria-label="Reset bearing to north"
         onClick={() => {
-          setViewState({ ...viewState, bearing: INITIAL_VIEW_STATE.bearing });
+          setViewState({ ...viewState, bearing: INITIAL_VIEW_STATE.bearing, pitch: INITIAL_VIEW_STATE.pitch});
         }}
       >
         <span
           className="mapboxgl-ctrl-icon"
           aria-hidden="true"
           title="Reset bearing to north"
-          style={{ transform: `rotate(${-viewState.bearing}deg)` }}
+          style={{ transform: `rotateX(${viewState.pitch}deg) rotate(${-viewState.bearing}deg)` }}
         ></span>
       </button>
-      <button
-        className="mapboxgl-ctrl-compass"
-        type="button"
-        aria-label="Reset pitch to 45 degrees"
-        onClick={() => {
-          setViewState({ ...viewState, pitch: INITIAL_VIEW_STATE.pitch });
-        }}
-      >
-        <span
-          className="mapboxgl-ctrl-icon"
-          aria-hidden="true"
-          title="Reset pitch to 45 degrees"
-          style={{ transform: `rotateX(${viewState.pitch}deg)` }}
-        ></span>
-      </button>
-  
-      
     </div>
   );
   const inMapContent = (
